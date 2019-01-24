@@ -8,29 +8,29 @@ let afternoonFood = ['juice', 'water', 'salt', 'appple', 'pineapple', 'sandwich'
 (function () {
     for (let i = 0; i < afternoonFood.length; i++) {
         let foodElement = document.createElement('div'); // Creating elements of food
-        foodElement.className = 'food'; 
-        slider.appendChild(foodElement); // Adding our food-elements to our slider
+        foodElement.className = 'food';
+        slider.appendChild(foodElement); // Adding our food-elements to slider
         foodElement.style.backgroundImage = 'url("img/food/' + afternoonFood[i] + '.png")' // Set background-image to food-blocks
     }
 })();
 
-(function heroComes(){
+(function heroComes() {
     let smallWindow = document.querySelector('.small-window'),
-        questionBlock = document.querySelector('.question'), 
-        agreeButton = document.querySelector('.agree-button'), 
+        questionBlock = document.querySelector('.question'),
+        agreeButton = document.querySelector('.agree-button'),
         diagreeButton = document.querySelector('.disagree-button');
     smallWindow.style.backgroundImage = 'url("img/little-face.png")'; // Setting a hero's face on the background of small window
     speak('дзинь дзинь дзинь') // 'The sounds of bells'
-    agreeButton.addEventListener('click', ()=>{
+    agreeButton.addEventListener('click', () => {
         questionBlock.style.display = 'none';
         man.style.display = 'block';
         smallWindow.style.backgroundImage = 'url("img/godscow.jpg")';
         speak('Я очень голоден'); // I am very hungry
         giveTheFood() // Start main function
     });
-    diagreeButton.addEventListener('click' , ()=>{
+    diagreeButton.addEventListener('click', () => {
         speak('ну и пошел нахуй, ублюдок'); // 'Fuck you bitch'
-        setTimeout(closeTab, 2300) // Run a function which close this tab, becouse we click on the disagree button
+        setTimeout(closeTab, 2300) // Run the function which close this tab, because we click on the disagree button
     })
 })();
 
@@ -44,7 +44,7 @@ function giveTheFood() {
     hungryBar.style.width = '0%'; // Set starting value of width
     moralBar.style.width = '0%'; // Set starting value of width
     let foodElement = document.getElementsByClassName('food');
-    for (let n = 0; n < foodElement.length; n++) { 
+    for (let n = 0; n < foodElement.length; n++) {
         foodElement[n].addEventListener("click", () => { // When we click on the food it display:none;
             console.log(hungry)
             speak(eatSounds[Math.floor(Math.random() * eatSounds.length)]);
@@ -59,16 +59,16 @@ function giveTheFood() {
             } else if (moral == 50) {
                 moralSmile.style.backgroundImage = 'url("img/panel/surprised.png")';
                 man.style.backgroundImage = 'url("img/man-fine.png")';
-                speak('Какой балдеж')
-            } 
-            else if(moral > 50){
+                speak('Какой балдеж');
+            } else if (moral > 50) {
                 moralSmile.style.backgroundImage = 'url("img/panel/happy.png")';
                 man.style.backgroundImage = 'url("img/man-happy.png")';
             }
         });
     }
 };
-function closeTab(){
+
+function closeTab() {
     window.close();
 }
 
@@ -78,10 +78,3 @@ function speak(text) {
     message.text = text;
     window.speechSynthesis.speak(message);
 }
-let btnSpeak = document.querySelector(".man");
-let txtMessage = 'шо';
-
-btnSpeak.addEventListener("click", () => {
-    speak(txtMessage);
-
-});
