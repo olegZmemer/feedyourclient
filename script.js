@@ -3,9 +3,18 @@ let afternoonFood = ['juice', 'water', 'salt', 'appple', 'pineapple', 'sandwich'
     man = document.querySelector('.man'), // Hero
     littleWindow = document.querySelector('.small-window'), // Door-window
     bigWindow = document.querySelector('.window'), // Window
-    slider = document.querySelector('.slider'); // Slider with food
+    slider = document.querySelector('.slider'), // Slider with food
+    date = new Date(),
+    dayTime = date.getHours();
 
-(function () {
+(function changeBigWindow(){
+    if(dayTime <= 12){
+        bigWindow.style.backgroundImage = 'url("img/sunrise.jpg")';
+    } else if(dayTime >= 22){
+        bigWindow.style.backgroundImage = 'url("img/night.jpeg")'
+    }
+})();
+(function displayFood() {
     for (let i = 0; i < afternoonFood.length; i++) {
         let foodElement = document.createElement('div'); // Creating elements of food
         foodElement.className = 'food';
@@ -24,8 +33,14 @@ let afternoonFood = ['juice', 'water', 'salt', 'appple', 'pineapple', 'sandwich'
     agreeButton.addEventListener('click', () => {
         questionBlock.style.display = 'none';
         man.style.display = 'block';
-        smallWindow.style.backgroundImage = 'url("img/godscow.jpg")';
-        speak('Я очень голоден'); // I am very hungry
+        if (dayTime <= 12) {
+            smallWindow.style.backgroundImage = 'url("img/gleb.png")';
+        } else if(dayTime >= 22){
+            smallWindow.style.backgroundImage = 'url("img/moon.jpg")'
+        }else{
+            smallWindow.style.backgroundImage = 'url("img/godscow.jpg")'
+        }
+        speak('Я очень голоден, накорми меня'); // I am very hungry
         giveTheFood() // Start main function
     });
     diagreeButton.addEventListener('click', () => {
@@ -67,6 +82,7 @@ function giveTheFood() {
         });
     }
 };
+
 
 function closeTab() {
     window.close();
