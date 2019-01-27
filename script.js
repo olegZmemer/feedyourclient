@@ -1,4 +1,4 @@
-let afternoonFood = ['juice', 'water', 'salt', 'appple', 'pineapple', 'sandwich', 'pizza', 'salad'], // Array with names of food. AFternoon
+;let afternoonFood = ['juice', 'water', 'salt', 'appple', 'pineapple', 'sandwich', 'pizza', 'salad'], // Array with names of food. AFternoon
     morningFood = ['coffee'], // Array with names of food. Night
     man = document.querySelector('.man'), // Hero
     littleWindow = document.querySelector('.small-window'), // Door-window
